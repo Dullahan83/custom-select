@@ -7,6 +7,9 @@ const style = {
   width: "200px",
   minWidth: "300px",
   color: "#000",
+  menuMaxHeight: "250px",
+  labelMargin: "1rem 0 10px 0",
+  generalPadding: "8px 16px",
   generalPadding: "8px 16px",
   buttonBorder: "1px solid grey",
   buttonBackground: "#ededed",
@@ -25,6 +28,9 @@ const style2 = {
   width: "500px",
   minWidth: "500px",
   color: "#000",
+  optionsMaxHeight: "250px",
+  scrollBehavior: "smooth",
+  labelMargin: "1rem 0 10px 0",
   generalPadding: "8px 16px",
   buttonBorder: "1px solid grey",
   buttonBackground: "#ededed",
@@ -36,6 +42,7 @@ const style2 = {
   arrowColor: "black",
   arrowSize: 10
 }
+
 const App = () => {
   const [state, setState] = useState()
 

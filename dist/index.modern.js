@@ -238,12 +238,12 @@ function Select({
   }, label), /*#__PURE__*/React.createElement("div", {
     ref: btnRef,
     role: "combobox",
-    "aria-controls": "dropdown-menu",
+    "aria-controls": `${idName}-dropdown-menu`,
     "aria-activedescendant": activeDescendant,
     "aria-haspopup": "listbox",
     id: `${idName}-btn`,
     "aria-expanded": isOpen,
-    "aria-owns": "dropdown-menu",
+    "aria-owns": `${idName}-dropdown-menu`,
     className: "dropdown-btn",
     tabIndex: "0"
   }, /*#__PURE__*/React.createElement("p", null, visibleOption), icon ? icon : /*#__PURE__*/React.createElement("div", {
@@ -256,7 +256,7 @@ function Select({
     }
   })), /*#__PURE__*/React.createElement("ul", {
     ref: menuRef,
-    id: "dropdown-menu",
+    id: `${idName}-dropdown-menu`,
     role: "listbox",
     "aria-hidden": !isOpen,
     className: isOpen ? "options open" : "options closed"
