@@ -1,137 +1,108 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
-let _ = t => t,
-  _t;
-const CustomSelect = styled.div(_t || (_t = _`
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-    scroll-behavior: ${0};
+function _taggedTemplateLiteralLoose(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+  strings.raw = raw;
+  return strings;
 }
-    box-sizing: border-box;
-    width: ${0};
-    min-width: ${0};
-    position: relative;
-    label{
-        display:flex;
-        margin: ${0};
-        font-size: ${0};
-    }
-    &:hover{
-        cursor:pointer;
-    }
-    .dropdown-btn{
-        width: 100%;
-        display: flex;
-        background-color: ${0} ;
-        padding: ${0};
-        border: ${0};
-        font-size: ${0};
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-        p{
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    }
-    
-    .options{
-        position: absolute;
-        overflow: hidden;
-        z-index: 1000;
-        width: 100%;
-        list-style: none;
-        border: ${0};
-        background-color: ${0};
-        font-size: ${0};
-        font-family: inherit ;
-        padding:0;
-        max-height: ${0};
-        overflow-y: ${0};
-        li:nth-of-type(${0}){
-            background-color: ${0};
-            color: ${0};
 
-            &:hover{
-                color: ${0};
-            }
-        }
-        li{
-            overflow: hidden;
-            width: 100%;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            padding: ${0};
-        }
-        li:active, li:focus{
-            background-color: ${0};
-        }
-    }
-    .closed{
-        display: none;
-
-    }
-    .open{
-        display: block;
-        height: fit-content;
-    }
-    .dropdown-arrow{
-        width: 0;
-        height: 0;
-        margin-left: ${0};
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-        border-top: 7px solid transparent;
-        border-top-color: ${0};
-        border-top-width: ${0};
-        border-left-width: ${0};
-        border-right-width: ${0};
-    }
-    .dropdown-mask{
-        position: absolute;
-        width: 100%;
-        background-color: transparent;
-        height: 100%;
-        left:0;
-    }
-`), props => props.style ? props.style.scrollBehavior : "auto", props => props.style ? props.style.width : "100%", props => props.style ? props.style.minWidth : "200px", props => props.style ? props.style.labelMargin : "1rem 0 10px 0", props => props.style ? props.style.labelFontSize : "18px", props => props.style ? props.style.buttonBackground : "#fafafa", props => props.style ? props.style.generalPadding : "8px 16px", props => props.style ? props.style.buttonBorder : "1px solid grey", props => props.style ? props.style.fontSize : "inherit", props => props.style ? props.style.optionsBorder : "1px solid grey", props => props.style ? props.style.optionsBackground : "white", props => props.style ? props.style.fontSize : "inherit", props => props.scrollable === true && props.style ? props.style.optionsMaxHeight : "fit-content", props => props.scrollable === true ? "scroll" : "hidden", props => props.index && props.index, props => props.style ? props.style.optionsItemHoverBgColor : "blue", props => props.style ? props.style.optionsItemHoverTxtColor : "white", props => props.style ? props.style.optionsItemHoverTxtColor : "white", props => props.style ? props.style.generalPadding : "8px 16px", props => props.style ? props.style.optionsItemHoverBgColor : "blue", props => props.style ? "0" : "30px", props => props.style ? props.style.arrowColor : "grey", props => props.style ? props.style.arrowSize + "px" : "7px", props => props.style ? props.style.arrowSize - 1 + "px" : "7px", props => props.style ? props.style.arrowSize - 1 + "px" : "7px");
-function Select({
-  customStyle,
-  idName,
-  icon,
-  options,
-  label,
-  scrollable,
-  searchTimer,
-  isReset,
-  baseOption,
-  setValue
-}) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [visibleOption, setVisibleOption] = useState(baseOption ? baseOption : options[0].name || options[0]);
-  const [activeDescendant, setActiveDescendant] = useState(1);
-  const [prevActive, setPrevActive] = useState(1);
-  const btnRef = useRef();
-  const timerRef = useRef();
-  const menuRef = useRef();
-  let searchArray = [];
+var _templateObject;
+var CustomSelect = styled.div(_templateObject || (_templateObject = _taggedTemplateLiteralLoose(["\n*{\n    margin: 0;\n    padding:0;\n    box-sizing: border-box;\n    scroll-behavior: ", ";\n}\n    box-sizing: border-box;\n    width: ", ";\n    min-width: ", ";\n    position: relative;\n    label{\n        display:flex;\n        margin: ", ";\n        font-size: ", ";\n    }\n    &:hover{\n        cursor:pointer;\n    }\n    .dropdown-btn{\n        width: 100%;\n        display: flex;\n        background-color: ", " ;\n        padding: ", ";\n        border: ", ";\n        font-size: ", ";\n        align-items: center;\n        justify-content: space-between;\n        position: relative;\n        p{\n            text-overflow: ellipsis;\n            white-space: nowrap;\n            overflow: hidden;\n        }\n    }\n    \n    .options{\n        position: absolute;\n        overflow: hidden;\n        z-index: 1000;\n        width: 100%;\n        list-style: none;\n        border: ", ";\n        background-color: ", ";\n        font-size: ", ";\n        font-family: inherit ;\n        padding:0;\n        max-height: ", ";\n        overflow-y: ", ";\n        li:nth-of-type(", "){\n            background-color: ", ";\n            color: ", ";\n\n            &:hover{\n                color: ", ";\n            }\n        }\n        li{\n            overflow: hidden;\n            width: 100%;\n            text-overflow: ellipsis;\n            white-space: nowrap;\n            padding: ", ";\n        }\n        li:active, li:focus{\n            background-color: ", ";\n        }\n    }\n    .closed{\n        display: none;\n\n    }\n    .open{\n        display: block;\n        height: fit-content;\n    }\n    .dropdown-arrow{\n        width: 0;\n        height: 0;\n        margin-left: ", ";\n        border-left: 6px solid transparent;\n        border-right: 6px solid transparent;\n        border-top: 7px solid transparent;\n        border-top-color: ", ";\n        border-top-width: ", ";\n        border-left-width: ", ";\n        border-right-width: ", ";\n    }\n    .dropdown-mask{\n        position: absolute;\n        width: 100%;\n        background-color: transparent;\n        height: 100%;\n        left:0;\n    }\n"])), function (props) {
+  return props.style ? props.style.scrollBehavior : "auto";
+}, function (props) {
+  return props.style ? props.style.width : "100%";
+}, function (props) {
+  return props.style ? props.style.minWidth : "200px";
+}, function (props) {
+  return props.style ? props.style.labelMargin : "1rem 0 10px 0";
+}, function (props) {
+  return props.style ? props.style.labelFontSize : "18px";
+}, function (props) {
+  return props.style ? props.style.buttonBackground : "#fafafa";
+}, function (props) {
+  return props.style ? props.style.generalPadding : "8px 16px";
+}, function (props) {
+  return props.style ? props.style.buttonBorder : "1px solid grey";
+}, function (props) {
+  return props.style ? props.style.fontSize : "inherit";
+}, function (props) {
+  return props.style ? props.style.optionsBorder : "1px solid grey";
+}, function (props) {
+  return props.style ? props.style.optionsBackground : "white";
+}, function (props) {
+  return props.style ? props.style.fontSize : "inherit";
+}, function (props) {
+  return props.scrollable === true && props.style ? props.style.optionsMaxHeight : "fit-content";
+}, function (props) {
+  return props.scrollable === true ? "scroll" : "hidden";
+}, function (props) {
+  return props.index && props.index;
+}, function (props) {
+  return props.style ? props.style.optionsItemHoverBgColor : "blue";
+}, function (props) {
+  return props.style ? props.style.optionsItemHoverTxtColor : "white";
+}, function (props) {
+  return props.style ? props.style.optionsItemHoverTxtColor : "white";
+}, function (props) {
+  return props.style ? props.style.generalPadding : "8px 16px";
+}, function (props) {
+  return props.style ? props.style.optionsItemHoverBgColor : "blue";
+}, function (props) {
+  return props.style ? "0" : "30px";
+}, function (props) {
+  return props.style ? props.style.arrowColor : "grey";
+}, function (props) {
+  return props.style ? props.style.arrowSize + "px" : "7px";
+}, function (props) {
+  return props.style ? props.style.arrowSize - 1 + "px" : "7px";
+}, function (props) {
+  return props.style ? props.style.arrowSize - 1 + "px" : "7px";
+});
+function Select(_ref) {
+  var customStyle = _ref.customStyle,
+    idName = _ref.idName,
+    icon = _ref.icon,
+    options = _ref.options,
+    label = _ref.label,
+    scrollable = _ref.scrollable,
+    searchTimer = _ref.searchTimer,
+    isReset = _ref.isReset,
+    baseOption = _ref.baseOption,
+    setValue = _ref.setValue;
+  var _useState = useState(false),
+    isOpen = _useState[0],
+    setIsOpen = _useState[1];
+  var _useState2 = useState(baseOption ? baseOption : options[0].name || options[0]),
+    visibleOption = _useState2[0],
+    setVisibleOption = _useState2[1];
+  var _useState3 = useState(1),
+    activeDescendant = _useState3[0],
+    setActiveDescendant = _useState3[1];
+  var _useState4 = useState(1),
+    prevActive = _useState4[0],
+    setPrevActive = _useState4[1];
+  var btnRef = useRef();
+  var timerRef = useRef();
+  var menuRef = useRef();
+  var searchArray = [];
   defineSearchMaterial();
   function defineSearchMaterial() {
-    options && options.forEach(option => {
+    options && options.forEach(function (option) {
       searchArray.push(option.name ? option.name : option);
     });
   }
-  const handleClickAway = e => {
+  var handleClickAway = function handleClickAway(e) {
     console.log(e.target.tagName);
     if (e.target.tagName === "HTML" || e.target.parentNode.parentNode.id != idName) {
       e.target.className != "option" && setActiveDescendant(prevActive);
       setIsOpen(false);
     } else if (e.target.parentNode.parentNode.id === idName && e.target.className === "dropdown-mask") {
-      !isOpen && setIsOpen(prev => !prev);
+      !isOpen && setIsOpen(function (prev) {
+        return !prev;
+      });
     }
   };
   function handleMouseOver(e) {
@@ -143,18 +114,24 @@ function Select({
     switch (e.target.className) {
       case "dropdown-btn":
         if (e.code === "Space" | e.code === "Enter" | e.key === " " | e.key === "Enter") {
-          setIsOpen(prev => !prev);
+          setIsOpen(function (prev) {
+            return !prev;
+          });
         }
         if (isOpen) {
           if (e.code === "ArrowLeft" || e.code === "ArrowUp" || e.key === "ArrowLeft" || e.key === "ArrowUp") {
             e.code === "ArrowUp" && e.preventDefault();
             e.code === "ArrowLeft" && e.preventDefault();
-            setActiveDescendant(prev => prev > 1 ? prev - 1 : 1);
+            setActiveDescendant(function (prev) {
+              return prev > 1 ? prev - 1 : 1;
+            });
             scrollToTarget();
           } else if (e.code === "ArrowRight" | e.code === "ArrowDown" || e.key === "ArrowRight" || e.key === "ArrowDown") {
             e.code === "ArrowDown" && e.preventDefault();
             e.code === "ArrowRight" && e.preventDefault();
-            activeDescendant < options.length && setActiveDescendant(prev => prev < options.length + 1 ? prev + 1 : prev);
+            activeDescendant < options.length && setActiveDescendant(function (prev) {
+              return prev < options.length + 1 ? prev + 1 : prev;
+            });
             scrollToTarget();
           } else if (e.code === "Space" || e.code === "Enter" || e.key === " " || e.key === "Enter") {
             e.code === "Space" && e.preventDefault();
@@ -168,7 +145,7 @@ function Select({
             setVisibleOption(options[prevActive - 1].name || options[prevActive - 1]);
             setIsOpen(false);
           } else if (e.key.length === 1 && e.key.match(/[a-z]/i)) {
-            let key = e.key;
+            var key = e.key;
             updateLs(key);
             clearTimeout(timerRef.current);
             search();
@@ -178,26 +155,28 @@ function Select({
     }
   }
   function scrollToTarget(index) {
-    const menuOptions = document.querySelectorAll(`#${idName} ul li`);
+    var menuOptions = document.querySelectorAll("#" + idName + " ul li");
     menuOptions[index > 0 ? index - 1 : index <= 0 ? 0 : activeDescendant - 1].scrollIntoViewIfNeeded();
   }
   function search() {
-    const string = localStorage.getItem(`${idName}Search`);
-    const index = searchArray.findIndex(el => el.slice(0, string.length).toLowerCase() === string.toLowerCase());
+    var string = localStorage.getItem(idName + "Search");
+    var index = searchArray.findIndex(function (el) {
+      return el.slice(0, string.length).toLowerCase() === string.toLowerCase();
+    });
     console.log(index);
     setActiveDescendant(index > 0 ? index + 1 : index === 0 ? 1 : activeDescendant);
-    timerRef.current = setTimeout(() => {
+    timerRef.current = setTimeout(function () {
       resetSearch();
     }, searchTimer ? searchTimer : 1000);
     scrollToTarget(index > 0 ? index + 1 : index < 0 ? activeDescendant : 1);
   }
   function updateLs(key) {
-    let string = localStorage.getItem(`${idName}Search`);
+    var string = localStorage.getItem(idName + "Search");
     string ? string += key : string = key;
-    localStorage.setItem(`${idName}Search`, string);
+    localStorage.setItem(idName + "Search", string);
   }
   function resetSearch() {
-    localStorage.removeItem(`${idName}Search`);
+    localStorage.removeItem(idName + "Search");
     clearTimeout(timerRef.current);
   }
   function handleClickOnItem(e, key) {
@@ -207,14 +186,16 @@ function Select({
     setActiveDescendant(key);
     setValue && setValue(e.target.dataset.value);
   }
-  useEffect(() => {
+  useEffect(function () {
     setValue && setValue(options[0].abbreviation ? options[0].abbreviation : options[0]);
   }, []);
-  useEffect(() => {
+  useEffect(function () {
     isOpen && document.addEventListener("click", handleClickAway);
-    return () => document.removeEventListener('click', handleClickAway);
+    return function () {
+      return document.removeEventListener('click', handleClickAway);
+    };
   }, [isOpen]);
-  useEffect(() => {
+  useEffect(function () {
     scrollToTarget(1);
     setVisibleOption(baseOption ? baseOption : options[0].name || options[0]);
     setPrevActive(1);
@@ -226,44 +207,52 @@ function Select({
     style: customStyle && customStyle,
     index: activeDescendant,
     scrollable: scrollable,
-    onKeyDown: e => handleKeyPress(e),
-    onMouseOver: e => handleMouseOver(e),
+    onKeyDown: function onKeyDown(e) {
+      return handleKeyPress(e);
+    },
+    onMouseOver: function onMouseOver(e) {
+      return handleMouseOver(e);
+    },
     "data-value": options[activeDescendant - 1].abbreviation || options[activeDescendant - 1]
   }, label && /*#__PURE__*/React.createElement("label", {
     htmlFor: idName + "-btn",
-    onClick: () => {
+    onClick: function onClick() {
       var _btnRef$current;
       return (_btnRef$current = btnRef.current) === null || _btnRef$current === void 0 ? void 0 : _btnRef$current.focus();
     }
   }, label), /*#__PURE__*/React.createElement("div", {
     ref: btnRef,
     role: "combobox",
-    "aria-controls": `${idName}-dropdown-menu`,
-    "aria-activedescendant": activeDescendant,
-    "aria-haspopup": "listbox",
-    id: `${idName}-btn`,
+    "aria-labelledby": idName + " select",
+    "aria-controls": idName + "-dropdown-menu",
+    "aria-activedescendant": options[activeDescendant - 1].name || options[activeDescendant - 1],
+    "aria-haspopup": true,
+    id: idName + "-btn",
     "aria-expanded": isOpen,
-    "aria-owns": `${idName}-dropdown-menu`,
+    "aria-owns": idName + "-dropdown-menu",
     className: "dropdown-btn",
     tabIndex: "0"
   }, /*#__PURE__*/React.createElement("p", null, visibleOption), icon ? icon : /*#__PURE__*/React.createElement("div", {
     className: "dropdown-arrow"
   }), /*#__PURE__*/React.createElement("span", {
     className: "dropdown-mask",
-    onClick: () => {
-      setIsOpen(prev => !prev);
+    onClick: function onClick() {
+      setIsOpen(function (prev) {
+        return !prev;
+      });
       setActiveDescendant(prevActive);
     }
   })), /*#__PURE__*/React.createElement("ul", {
     ref: menuRef,
-    id: `${idName}-dropdown-menu`,
+    id: idName + "-dropdown-menu",
     role: "listbox",
     "aria-hidden": !isOpen,
     className: isOpen ? "options open" : "options closed"
-  }, options && options.map((option, key) => {
+  }, options && options.map(function (option, key) {
     return /*#__PURE__*/React.createElement("li", {
+      id: options[key].name || options[key],
       key: key,
-      onClick: e => {
+      onClick: function onClick(e) {
         handleClickOnItem(e, key + 1);
       },
       "data-key": key + 1,

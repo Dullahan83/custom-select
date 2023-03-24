@@ -226,9 +226,10 @@ function Select(_ref) {
   }, label), /*#__PURE__*/React__default.createElement("div", {
     ref: btnRef,
     role: "combobox",
+    "aria-labelledby": idName + " select",
     "aria-controls": idName + "-dropdown-menu",
-    "aria-activedescendant": activeDescendant,
-    "aria-haspopup": "listbox",
+    "aria-activedescendant": options[activeDescendant - 1].name || options[activeDescendant - 1],
+    "aria-haspopup": true,
     id: idName + "-btn",
     "aria-expanded": isOpen,
     "aria-owns": idName + "-dropdown-menu",
@@ -252,6 +253,7 @@ function Select(_ref) {
     className: isOpen ? "options open" : "options closed"
   }, options && options.map(function (option, key) {
     return /*#__PURE__*/React__default.createElement("li", {
+      id: options[key].name || options[key],
       key: key,
       onClick: function onClick(e) {
         handleClickOnItem(e, key + 1);

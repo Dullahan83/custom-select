@@ -50,7 +50,7 @@ const App = () => {
     <br />
     <Select idName="test2" setValue={setState} options={departments} customStyle={style} label="Departments" />
     <br />
-    <Select idName="test3" options={states} setValue={setState} customStyle={style2} />
+    {/* <Select idName="test3" options={states} setValue={setState} customStyle={style2} /> */}
   </>
 }
 

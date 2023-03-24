@@ -250,13 +250,13 @@ function Select({ customStyle, idName, icon, options, label, scrollable, searchT
     return (
         <CustomSelect id={idName} style={customStyle && customStyle} index={activeDescendant} scrollable={scrollable} onKeyDown={(e) => handleKeyPress(e)} onMouseOver={(e) => handleMouseOver(e)} data-value={options[activeDescendant - 1].abbreviation || options[activeDescendant - 1]}>
             {label && <label htmlFor={idName + "-btn"} onClick={() => btnRef.current?.focus()}>{label}</label>}
-            <div ref={btnRef} role="combobox" aria-controls={`${idName}-dropdown-menu`} aria-activedescendant={activeDescendant} aria-haspopup="listbox" id={`${idName}-btn`} aria-expanded={isOpen} aria-owns={`${idName}-dropdown-menu`} className="dropdown-btn" tabIndex="0" ><p>{visibleOption}</p>{icon ? icon : <div className='dropdown-arrow'></div>}<span className='dropdown-mask' onClick={() => {
+            <div ref={btnRef} role="combobox" aria-labelledby={`${idName} select`} aria-controls={`${idName}-dropdown-menu`} aria-activedescendant={options[activeDescendant - 1].name || options[activeDescendant - 1]} aria-haspopup={true} id={`${idName}-btn`} aria-expanded={isOpen} aria-owns={`${idName}-dropdown-menu`} className="dropdown-btn" tabIndex="0" ><p>{visibleOption}</p>{icon ? icon : <div className='dropdown-arrow'></div>}<span className='dropdown-mask' onClick={() => {
                 setIsOpen((prev) => !prev)
                 setActiveDescendant(prevActive)
             }}></span></div>
             <ul ref={menuRef} id={`${idName}-dropdown-menu`} role="listbox" aria-hidden={!isOpen} className={isOpen ? "options open" : "options closed"}>
                 {options && options.map((option, key) => {
-                    return <li key={key} onClick={(e) => {
+                    return <li id={options[key].name || options[key]} key={key} onClick={(e) => {
                         handleClickOnItem(e, key + 1)
                     }}
                         data-key={key + 1} data-value={option.abbreviation || option} className="option" role="option" aria-selected={key + 1 === prevActive ? true : false}>{option.name || option}</li>
