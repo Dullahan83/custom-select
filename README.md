@@ -27,9 +27,9 @@ class Example extends Component {
 
 ## Necessary Props
 
-**options:** _string[] | object[{abbreviation: string, name: string}]_;
-**idName:** _string_;
-**setValue:** _(val: string) => void_;
+**options:** _string[] | object[{abbreviation: string, name: string}]_  
+**idName:** _string_  
+**setValue:** _(val: string) => void_  
 
 ## Optionnal Props
 
@@ -67,11 +67,11 @@ const style = {
   <svg></svg>
 ```
 
-**label:** _string_;
-**scrollable:** _boolean_;
-**searchTimer:** _number in ms_;
-**isReset:** _boolean (used to reset component to initial state)_;
-**baseOption:** _string (used to define the default appearing option)_;
+**label:** _string_  
+**scrollable:** _boolean_  
+**searchTimer:** _number in ms_  
+**isReset:** _boolean (used to reset component to initial state)_  
+**baseOption:** _string (used to define the default appearing option)_  
 
 ## License
 
