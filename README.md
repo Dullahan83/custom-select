@@ -27,7 +27,7 @@ class Example extends Component {
 
 ## Necessary Props
 
-**options:** _string[] | object[{abbreviation: string, name: string}]_  
+**options:** _string[] | array[{abbreviation: string, name: string}]_  
 **idName:** _string_  
 **setValue:** _(val: string) => void_  
 
