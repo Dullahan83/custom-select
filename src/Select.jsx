@@ -103,7 +103,7 @@ const CustomSelect = styled.div`
  * @param {object} customStyle css property in object form : Optionnal
  * @param {string} idName name to be passed as component id : Mandatory, needed to correctly launch events
  * @param {HTMLElement} icon  html element i/img/svg : Optionnal
- * @param {Array} options either plain array or array of object : Mandatory in case of a select Type
+ * @param {Array} options either plain array or array of object : Mandatory 
  * @param {string} label label field text content : Optionnal
  * @param {boolean} scrollable change menu to a scrollable one : Optionnal
  * @param {number} searchTimer set a specific timer for the reset of search : Optionnal, a base timer of 1500ms is set by default  

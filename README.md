@@ -25,6 +25,54 @@ class Example extends Component {
 }
 ```
 
+## Necessary Props
+
+**options:** _string[] | object[{abbreviation: string, name: string}]_
+**idName:** _string_
+**setValue:** _(val: string) => void_
+
+## Optionnal Props
+
+**customStyle:**
+
+```jsx
+const style = {
+  fontSize: '24px',
+  width: '200px',
+  minWidth: '300px',
+  color: '#000',
+  menuMaxHeight: '250px',
+  scrollBehavior: 'smooth',
+  labelMargin: '1rem 0 10px 0',
+  generalPadding: '8px 16px',
+  buttonBorder: '1px solid grey',
+  buttonBackground: '#ededed',
+  optionsBorder: '1px solid grey',
+  optionsBackground: '#fff',
+  optionsItemHoverBgColor: 'blue',
+  optionsItemColor: 'black',
+  optionsItemHoverTxtColor: 'white',
+  arrowColor: 'black',
+  arrowSize: 10
+}
+```
+
+**icon:**
+
+```jsx
+  <i></i>
+  or
+  <img></img>
+  or
+  <svg></svg>
+```
+
+**label:** _string_
+**scrollable:** _boolean_
+**searchTimer:** _number in ms_
+**isReset:** _boolean (used to reset component to initial state)_
+**baseOption:** _string (used to define the default appearing option)_
+
 ## License
 
 MIT © [Dullahan83](https://github.com/Dullahan83)
