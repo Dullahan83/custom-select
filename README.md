@@ -10,21 +10,6 @@
 npm install --save react-customizable-select
 ```
 
-## Usage
-
-```jsx
-import React, { Component } from 'react'
-
-import MyComponent from 'react-customizable-select'
-import 'react-customizable-select/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
-```
-
 ## Necessary Props
 
 **options:** _string[] | array[{abbreviation: string, name: string}]_  
